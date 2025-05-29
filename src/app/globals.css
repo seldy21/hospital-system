@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -22,5 +22,189 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-pretendard);
+  box-sizing: border-box;
+}
+
+.login-wrapper {
+  width: 100%;
+  height: 100vh;
+  background: url('/images/backgrounds/login-background.png') no-repeat center
+    center;
+  background-size: cover;
+}
+
+.login-outline {
+  border-radius: 10px;
+  position: absolute;
+  border: 2px solid #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-box {
+  padding: 64px 35px 32px;
+  background: linear-gradient(rgba(231, 231, 231, 0.1), rgba(0, 0, 0, 0.1));
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  font-size: 0.75rem;
+}
+
+.login-form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form input::placeholder {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+}
+
+.text-input {
+  border: 0.5px solid rgba(217, 223, 230, 1);
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+  padding: 7px 12px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 0.75rem;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.text-input input {
+  display: block;
+  width: 100%;
+  outline: none;
+}
+
+.text-input.select-box {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 1);
+}
+
+.select-box-options {
+  border: 0.5px solid rgba(217, 223, 230, 1);
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.99);
+  max-height: 100px;
+  overflow: auto;
+}
+
+.select-box-options .select-option {
+  color:rgba(0, 0, 0, 1);
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.select-box-options .select-option:hover {
+  background-color: rgba(217, 223, 230, 1);
+}
+
+.layout-nav {
+  background-color: rgba(39, 92, 178, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 0.75rem 2rem;
+  display: flex;
+  gap: 6px;
+}
+
+/* checkbox */
+
+input[type='checkbox'] {
+  appearance: none;
+}
+
+input[type='checkbox'].checkbox-white-round:after {
+  content:url('/images/icons/lineGrayRound.svg');
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+input[type='checkbox'].checkbox-white-round:checked:after {
+  content:url('/images/icons/filledWhiteRound.svg');
+}
+
+/* button */
+.common-button { 
+  background-color: rgba(53, 142, 229, 1);
+  display: block;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.common-button:disabled {
+  background-color: rgba(241, 241, 241, 1);
+  color:rgba(142, 153, 168, 1);
+  cursor: default;
+}
+
+/* modal */
+.modal-overlay {
+  top:0;
+  left: 0;
+  background-color: #0a0a0a91;
+  position: absolute;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 99;
+  transition: opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), height 0.2s linear;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  padding: 20px 30px;
+  width: 360px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.input-cursor::after{
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 15px;
+  margin-top: 4px;
+  background-color: #ffffff;
+  animation: blink 1.2s infinite;
+}
+
+.drag-prevent{
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+/* text */
+.warn-text {
+  color: rgba(240, 100, 82, 1);
+  font-size: 12px;
+  font-weight: 400;
 }
